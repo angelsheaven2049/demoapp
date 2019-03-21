@@ -1,0 +1,90 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "bdecf817d13e5647a625b002441227b8",
+    "entities": [
+      {
+        "tableName": "news",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`roomId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `by` TEXT NOT NULL, `descendants` INTEGER NOT NULL, `id` INTEGER NOT NULL, `score` INTEGER NOT NULL, `time` INTEGER NOT NULL, `title` TEXT NOT NULL, `type` TEXT NOT NULL, `url` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "roomId",
+            "columnName": "roomId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "by",
+            "columnName": "by",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descendants",
+            "columnName": "descendants",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "time",
+            "columnName": "time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "roomId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_news_type",
+            "unique": false,
+            "columnNames": [
+              "type"
+            ],
+            "createSql": "CREATE  INDEX `index_news_type` ON `${TABLE_NAME}` (`type`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"bdecf817d13e5647a625b002441227b8\")"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/mobile_navigation.xml"
+            app:startDestination="@id/list_news_dest">
+
+    <fragment android:id="@+id/list_news_dest"
+              android:name="com.angelsheaven.teremdemoapp.ui.listNews.newNews.ListNewsFragment"
+              android:label="fragment_list_event" tools:layout="@layout/fragment_list_event">
+        <action android:id="@+id/move_from_list_event_to_detail_event"
+                app:destination="@id/view_news_detail_dest" app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim" app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action android:id="@+id/action_list_news_dest_to_login_dest" app:destination="@id/login_dest"/>
+    </fragment>
+    <fragment android:id="@+id/view_news_detail_dest"
+              android:name="com.angelsheaven.teremdemoapp.ui.viewNewsDetail.ViewNewsDetailFragment"
+              android:label="fragment_view_event_detail" tools:layout="@layout/fragment_view_event_detail">
+        <argument
+                android:name="news_id"
+                app:argType="integer"
+                app:nullable="false"/>
+    </fragment>
+    <fragment android:id="@+id/list_bookmark_news_dest" android:name="com.angelsheaven.teremdemoapp.ui.listNews.savedNews.ListSavedNewsFragment"
+              android:label="fragment_bookmark_news" tools:layout="@layout/fragment_bookmark_news">
+        <action android:id="@+id/action_bookmarkNewsFragment_to_view_news_detail_dest"
+                app:destination="@id/view_news_detail_dest" app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim" app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action android:id="@+id/action_list_bookmark_news_dest_to_login_dest" app:destination="@id/login_dest"/>
+    </fragment>
+    <fragment android:id="@+id/login_dest" android:name="com.angelsheaven.teremdemoapp.ui.login.LoginFragment"
+              android:label="fragment_login" tools:layout="@layout/fragment_login">
+        <action android:id="@+id/action_loginFragment_to_list_news_dest" app:destination="@id/list_news_dest"
+                app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+</navigation>

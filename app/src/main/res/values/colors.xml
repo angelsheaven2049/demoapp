@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Background color for toolbar-->
+    <color name="colorPrimary">#ffffff</color>
+    <!--Background color for notification bar -->
+    <color name="colorPrimaryDark">#ffffff</color>
+    <!--is used to tint various controls including seekbars-->
+    <color name="colorAccent">#D81B60</color>
+    <!--Text color on toolbar-->
+    <color name="textColorPrimary">#6E6E6E</color>
+    <!--Default background of app-->
+    <color name="windowBackground">#ffffff</color>
+    <!--Background color of footer navigation bar-->
+    <color name="navigationBarColor">#00574B</color>
+
+    <color name="text_color_tv_news_item">#6E6E6E</color>
+    <color name="snackbar_background_color">#ffffff</color>
+</resources>

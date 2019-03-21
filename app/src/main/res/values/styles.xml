@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:navigationBarColor">@color/navigationBarColor</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>-->
+    </style>
+
+    <style name="myActionBar" parent="@android:style/Theme.Holo">
+        <item name="android:editTextColor">@android:color/black</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="Dialog.FullScreen" parent="Theme.AppCompat.Dialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@drawable/transparent</item>
+    </style>
+
+    <style name="Dialog.Option" parent="Theme.AppCompat.Dialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@drawable/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_dialog</item>
+    </style>
+
+    <style name="Widget.Button.Toggle" parent="android:Widget">
+        <item name="android:background">@drawable/ic_bookmark_bg</item>
+        <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
+    </style>
+
+    <style name="bookmarkToggleButton" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!--<item name="android:buttonStyleToggle">@style/Widget.Button.Toggle</item>-->
+        <item name="android:background">@drawable/ic_bookmark_bg</item>
+        <item name="android:textOn"/>
+        <item name="android:textOff"/>
+    </style>
+</resources>

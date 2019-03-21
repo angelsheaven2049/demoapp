@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background"
+          android:height="48dp"
+          android:width="48dp"
+            android:drawable="@android:color/transparent"/>
+
+    <item android:id="@android:id/toggle"
+          android:height="30dp"
+          android:width="30dp"
+          android:top="10dp"
+          android:left="10dp"
+          android:drawable="@drawable/ic_bookmark"/>
+</layer-list>

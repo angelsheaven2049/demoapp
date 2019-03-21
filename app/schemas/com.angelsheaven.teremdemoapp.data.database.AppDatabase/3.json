@@ -1,0 +1,383 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "5dd8341a114c6f322981a767991b4984",
+    "entities": [
+      {
+        "tableName": "news",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`roomId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id` INTEGER NOT NULL, `deleted` INTEGER NOT NULL, `type` TEXT NOT NULL, `by` TEXT NOT NULL, `time` INTEGER NOT NULL, `text` TEXT NOT NULL, `dead` INTEGER NOT NULL, `parent` TEXT NOT NULL, `poll` TEXT NOT NULL, `kids` TEXT, `url` TEXT NOT NULL, `score` INTEGER NOT NULL, `title` TEXT NOT NULL, `parts` TEXT NOT NULL, `descendants` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "roomId",
+            "columnName": "roomId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "by",
+            "columnName": "by",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "time",
+            "columnName": "time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dead",
+            "columnName": "dead",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parent",
+            "columnName": "parent",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "poll",
+            "columnName": "poll",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kids",
+            "columnName": "kids",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parts",
+            "columnName": "parts",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descendants",
+            "columnName": "descendants",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "roomId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_news_type",
+            "unique": false,
+            "columnNames": [
+              "type"
+            ],
+            "createSql": "CREATE  INDEX `index_news_type` ON `${TABLE_NAME}` (`type`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "read_news",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`readTime` INTEGER, `roomId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id` INTEGER NOT NULL, `deleted` INTEGER NOT NULL, `type` TEXT NOT NULL, `by` TEXT NOT NULL, `time` INTEGER NOT NULL, `text` TEXT NOT NULL, `dead` INTEGER NOT NULL, `parent` TEXT NOT NULL, `poll` TEXT NOT NULL, `kids` TEXT, `url` TEXT NOT NULL, `score` INTEGER NOT NULL, `title` TEXT NOT NULL, `parts` TEXT NOT NULL, `descendants` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "readTime",
+            "columnName": "readTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "roomId",
+            "columnName": "roomId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "by",
+            "columnName": "by",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "time",
+            "columnName": "time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dead",
+            "columnName": "dead",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parent",
+            "columnName": "parent",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "poll",
+            "columnName": "poll",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kids",
+            "columnName": "kids",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parts",
+            "columnName": "parts",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descendants",
+            "columnName": "descendants",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "roomId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_read_news_readTime",
+            "unique": false,
+            "columnNames": [
+              "readTime"
+            ],
+            "createSql": "CREATE  INDEX `index_read_news_readTime` ON `${TABLE_NAME}` (`readTime`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "saved_news",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`savedTime` INTEGER, `roomId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id` INTEGER NOT NULL, `deleted` INTEGER NOT NULL, `type` TEXT NOT NULL, `by` TEXT NOT NULL, `time` INTEGER NOT NULL, `text` TEXT NOT NULL, `dead` INTEGER NOT NULL, `parent` TEXT NOT NULL, `poll` TEXT NOT NULL, `kids` TEXT, `url` TEXT NOT NULL, `score` INTEGER NOT NULL, `title` TEXT NOT NULL, `parts` TEXT NOT NULL, `descendants` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "savedTime",
+            "columnName": "savedTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "roomId",
+            "columnName": "roomId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "by",
+            "columnName": "by",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "time",
+            "columnName": "time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dead",
+            "columnName": "dead",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parent",
+            "columnName": "parent",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "poll",
+            "columnName": "poll",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kids",
+            "columnName": "kids",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parts",
+            "columnName": "parts",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descendants",
+            "columnName": "descendants",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "roomId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_saved_news_savedTime",
+            "unique": false,
+            "columnNames": [
+              "savedTime"
+            ],
+            "createSql": "CREATE  INDEX `index_saved_news_savedTime` ON `${TABLE_NAME}` (`savedTime`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"5dd8341a114c6f322981a767991b4984\")"
+    ]
+  }
+}

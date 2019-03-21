@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dialog_filter_option_array">
+        <item>@string/label_filter_by_all</item>
+        <item>@string/label_story_option</item>
+        <item>@string/label_job_option</item>
+        <item>@string/label_option_comment</item>
+        <item>@string/label_option_poll</item>
+        <item>@string/label_option</item>
+    </string-array>
+
+    <string-array name="dialog_sort_option_array">
+        <item>@string/label_option_sort_by_author</item>
+        <item>@string/label_option_sort_by_time</item>
+        <item>@string/label_option_sort_by_title</item>
+    </string-array>
+</resources>

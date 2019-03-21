@@ -1,0 +1,30 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="content_inset_start_toolbar">0dp</dimen>
+    <dimen name="default_button_size">48dp</dimen>
+    <dimen name="margin_end_button_toolbar">4dp</dimen>
+    <dimen name="size_spinner_progressbar">48dp</dimen>
+    <dimen name="default_corner_radius_card_view">10dp</dimen>
+    <dimen name="text_size_tv_title">18sp</dimen>
+    <dimen name="padding_text_view_news_item">10dp</dimen>
+    <dimen name="margin_start_text_view_news_item">8dp</dimen>
+    <dimen name="margin_end_text_view_news_item">8dp</dimen>
+    <dimen name="margin_top_text_view_news_item">8dp</dimen>
+    <dimen name="margin_bottom_text_view_news_item">8dp</dimen>
+    <dimen name="text_size_tv_author">16sp</dimen>
+    <dimen name="text_size_tv_create_time">16sp</dimen>
+    <dimen name="text_size_tv_url">16sp</dimen>
+    <dimen name="default_text_size_tv_news_item">16sp</dimen>
+    <dimen name="default_margin_component">16dp</dimen>
+    <dimen name="margin_top_filter_option">16dp</dimen>
+    <dimen name="default_padding_component">8dp</dimen>
+    <dimen name="shr_product_grid_spacing">16dp</dimen>
+    <dimen name="shr_product_grid_spacing_small">4dp</dimen>
+    <dimen name="margin_top_nested_view">16dp</dimen>
+    <dimen name="default_text_size_dialog">14sp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+</resources>
