@@ -25,11 +25,11 @@ open class NetworkDataSource {
 
 
     suspend fun requestNews(): Response<List<Int>>? {
-        return service?.getAllNewStoriesV2?.await()
+        return service?.getAllNewStories?.await()
     }
 
     suspend fun requestNewsDetail(newsId:Int): Response<News>? {
-        return service?.getNewsDetailV2Async("$newsId.json")?.await()
+        return service?.getNewsDetailAsync("$newsId.json")?.await()
     }
 
 }
