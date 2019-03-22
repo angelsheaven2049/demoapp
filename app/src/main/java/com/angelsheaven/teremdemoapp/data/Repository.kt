@@ -20,12 +20,12 @@ import java.util.*
 class Repository(
     private val networkDataSource: NetworkDataSource?
     , private val storageDataSource: StorageDataSource?
-    , private val isItInitializedData: Boolean?
+    , private val isDataInitialized: Boolean?
 ) : MyLogger {
 
     val networkConnectionState by lazy { MutableLiveData<Boolean>() }
     private val networkErrors by lazy { MutableLiveData<String>() }
-    private val updateInitializeData by lazy { MutableLiveData<Boolean>() }
+    val updateInitializeData by lazy { MutableLiveData<Boolean>() }
 
     //For singleton instantiation
     companion object {
@@ -99,7 +99,9 @@ class Repository(
     @Synchronized
     private fun getAndSaveData() {
 
-        if (isItInitializedData == true) return
+        log("Isinitialize $isDataInitialized")
+
+        if (isDataInitialized == true) return
 
         GlobalScope.launch {
             retrieveNewNews()
@@ -221,7 +223,7 @@ class Repository(
 
                                 val resultDeleteAllNewsTask = taskDeleteAllNews.await()
 
-                                if (resultDeleteAllNewsTask != null && resultDeleteAllNewsTask > 0) {
+                                if (resultDeleteAllNewsTask != null) {
 
                                     do {
                                         try {
@@ -316,7 +318,6 @@ class Repository(
                 return@withContext true
             } catch (ex: java.lang.Exception) {
                 throw ex
-                return@withContext false
             }
         }
 

@@ -13,6 +13,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
@@ -28,30 +29,31 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.contentView
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),MyLogger {
 
-    private lateinit var appBarConfiguration:AppBarConfiguration
+    private lateinit var appBarConfiguration: AppBarConfiguration
     private val mViewModel by lazy {
         //Inject view model to main activity
         val factory: MainActivityViewModelFactory? =
             provideMainActivityViewModelFactory(this.applicationContext, isItInitializedData(this))
 
-         ViewModelProviders.of(this, factory)
+        ViewModelProviders.of(this, factory)
             .get(MainActivityViewModel::class.java)
     }
     private var isNetworkConnected = false
 
-    private val netWorkChangeReceiver = object : BroadcastReceiver(){
+    private val netWorkChangeReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             context?.run {
 
                 isNetworkConnected = isNetworkConnected(this)
 
-                if(!isNetworkConnected)
-                {
+                if (!isNetworkConnected) {
                     this@MainActivity.contentView?.let {
-                        it.mySnackBar(R.string.lost_connection_notification
-                            ,R.color.snackbar_background_color).show()
+                        it.mySnackBar(
+                            R.string.lost_connection_notification
+                            , R.color.snackbar_background_color
+                        ).show()
                     }
                 }
             }
@@ -64,11 +66,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mViewModel.networkConnectionState.observe(this, Observer {isNetworkConnected->
-            if(!isNetworkConnected){
+        mViewModel.networkConnectionState.observe(this, Observer { isNetworkConnected ->
+            if (!isNetworkConnected) {
                 this@MainActivity.contentView?.let {
-                    it.mySnackBar(R.string.check_network_connection
-                        ,R.color.snackbar_background_color).show()
+                    it.mySnackBar(
+                        R.string.check_network_connection
+                        , R.color.snackbar_background_color
+                    ).show()
                 }
             }
         })
@@ -82,14 +86,19 @@ class MainActivity : AppCompatActivity() {
         //Setup action bar for activity
         setSupportActionBar(toolbar)
 
-        val appBarConfiguration =  AppBarConfiguration(
-            setOf(R.id.list_news_dest
-                ,R.id.list_bookmark_news_dest
-                ,R.id.login_dest),drawer_layout)
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.list_news_dest
+                , R.id.list_bookmark_news_dest
+                , R.id.login_dest
+            ), drawer_layout
+        )
 
         //setup action bar
-        toolbar_layout.setupWithNavController(toolbar
-            ,navController,appBarConfiguration)
+        toolbar_layout.setupWithNavController(
+            toolbar
+            , navController, appBarConfiguration
+        )
 
         //setup navigation menu
         nav_view.setupWithNavController(navController)
@@ -97,9 +106,9 @@ class MainActivity : AppCompatActivity() {
         //setup bottom bar
         bottom_nav_view.setupWithNavController(navController)
 
-        navController.addOnDestinationChangedListener { _, destination,_ ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
 
-            when(destination.id){
+            when (destination.id) {
                 R.id.list_news_dest -> {
                     bottom_nav_view.visibility = View.VISIBLE
                     enableToolbarScrolling(true)
@@ -115,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                     enableToolbarScrolling(false)
                     toolbar_layout.visibility = View.VISIBLE
                 }
-                R.id.login_dest->{
+                R.id.login_dest -> {
                     toolbar_layout.visibility = View.GONE
                     bottom_nav_view.visibility = View.GONE
                 }
@@ -125,14 +134,26 @@ class MainActivity : AppCompatActivity() {
 
         createNotificationChannel()
 
+        if (!isItInitializedData(this)) {
+            mViewModel.updateInitializeDataState.observeOnce(this
+                , Observer { isUpdated ->
+                    if (isUpdated) {
+                        this.getMyPreferences()?.edit {
+                            log("Update initialize data flag")
+                            putBoolean(INITIALIZE_DATA, true)
+                        }
+                    }
+                })
+        }
+
     }
 
     private fun enableToolbarScrolling(enable: Boolean) {
         val params = toolbar_layout.layoutParams
                 as AppBarLayout.LayoutParams
-        if (enable){
+        if (enable) {
             params.scrollFlags = AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
-        }else{
+        } else {
             params.scrollFlags = 0
         }
     }
@@ -143,7 +164,7 @@ class MainActivity : AppCompatActivity() {
         //Register network connectivity change listener
         val intentFilter = IntentFilter()
         intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION)
-        registerReceiver(netWorkChangeReceiver,intentFilter)
+        registerReceiver(netWorkChangeReceiver, intentFilter)
     }
 
     override fun onPause() {
@@ -153,8 +174,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val retValue = super.onCreateOptionsMenu(menu)
-        if(nav_view==null){
-            menuInflater.inflate(R.menu.overflow_menu,menu)
+        if (nav_view == null) {
+            menuInflater.inflate(R.menu.overflow_menu, menu)
             return true
         }
 
@@ -178,8 +199,10 @@ class MainActivity : AppCompatActivity() {
         if (android.os.Build.VERSION.SDK_INT
             >= android.os.Build.VERSION_CODES.O
         ) {
-            val notificationChannel = NotificationChannel(PRIMARY_CHANNEL_ID
-                , NOTIFICATION_NAME, NotificationManager.IMPORTANCE_HIGH)
+            val notificationChannel = NotificationChannel(
+                PRIMARY_CHANNEL_ID
+                , NOTIFICATION_NAME, NotificationManager.IMPORTANCE_HIGH
+            )
 
             notificationChannel.apply {
                 enableLights(true)
