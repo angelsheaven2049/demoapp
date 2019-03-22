@@ -98,9 +98,6 @@ class Repository(
 
     @Synchronized
     private fun getAndSaveData() {
-
-        log("Isinitialize $isDataInitialized")
-
         if (isDataInitialized == true) return
 
         GlobalScope.launch {
