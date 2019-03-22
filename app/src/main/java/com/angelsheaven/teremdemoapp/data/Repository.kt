@@ -33,27 +33,24 @@ class Repository(
 
     //For singleton instantiation
     companion object {
-        private val LOCK: Any = Any()
         private var sInstance: Repository? = null
+
         @Synchronized
         fun getInstance(
             networkDataSource: NetworkDataSource?
             , storageDataSource: StorageDataSource?
             , activity: Activity?
         ): Repository? {
-            if (sInstance == null) {
-                synchronized(LOCK) {
-                    sInstance = Repository(
-                        networkDataSource
-                        , storageDataSource
-                        , activity
-                    )
-
+            return sInstance ?: synchronized(this) {
+                Repository(
+                    networkDataSource,
+                    storageDataSource,
+                    activity
+                ).also {
+                    sInstance = it
                 }
             }
-            return sInstance
         }
-
     }
 
     suspend fun markNewsRead(news: News?): Boolean {
