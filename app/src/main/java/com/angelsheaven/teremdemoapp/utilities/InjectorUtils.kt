@@ -3,8 +3,8 @@ package com.angelsheaven.teremdemoapp.utilities
 import android.content.Context
 import androidx.fragment.app.Fragment
 import com.angelsheaven.teremdemoapp.data.Repository
-import com.angelsheaven.teremdemoapp.data.storage.AppDatabase
 import com.angelsheaven.teremdemoapp.data.network.NetworkDataSource
+import com.angelsheaven.teremdemoapp.data.storage.AppDatabase
 import com.angelsheaven.teremdemoapp.data.storage.StorageDataSource
 import com.angelsheaven.teremdemoapp.ui.MainActivityViewModelFactory
 import com.angelsheaven.teremdemoapp.ui.listNews.newNews.ListNewsFragmentViewModelFactory
@@ -33,7 +33,7 @@ fun provideMainActivityViewModelFactory(
 
 fun provideViewNewsDetailFragmentViewModelFactory(
     context: Context,
-    isItInitializedData:Boolean
+    isItInitializedData:Boolean?
 ): ViewNewsDetailFragmentViewModelFactory? {
     val repository = provideRepository(context,isItInitializedData)
     return repository?.let {
@@ -43,7 +43,7 @@ fun provideViewNewsDetailFragmentViewModelFactory(
 
 fun provideListSavedNewsFragmentViewModelFactory(
     context: Context,
-    isItInitializedData:Boolean
+    isItInitializedData:Boolean?
 ): ListSavedNewsFragmentViewModelFactory? {
     val repository = provideRepository(context,isItInitializedData)
     return repository?.let {
@@ -53,7 +53,7 @@ fun provideListSavedNewsFragmentViewModelFactory(
 
 fun provideListNewsFragmentViewModelFactory(
     context: Context,
-    isItInitializedData:Boolean
+    isItInitializedData:Boolean?
 ): ListNewsFragmentViewModelFactory? {
     val repository = provideRepository(context,isItInitializedData)
     return repository?.let {

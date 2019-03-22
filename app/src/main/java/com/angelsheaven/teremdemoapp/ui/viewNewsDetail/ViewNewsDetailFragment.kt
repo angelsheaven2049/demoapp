@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.angelsheaven.teremdemoapp.databinding.FragmentViewEventDetailBinding
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
-import com.angelsheaven.teremdemoapp.utilities.isItInitializedData
+import com.angelsheaven.teremdemoapp.utilities.isMyDataItInitialized
 import com.angelsheaven.teremdemoapp.utilities.provideViewNewsDetailFragmentViewModelFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -23,7 +23,7 @@ class ViewNewsDetailFragment : Fragment(), MyLogger {
 
     private val viewModel by lazy {
         val factory: ViewNewsDetailFragmentViewModelFactory?
-                = context?.let { provideViewNewsDetailFragmentViewModelFactory(it, isItInitializedData(activity)) }
+                = context?.let { provideViewNewsDetailFragmentViewModelFactory(it, activity?.isMyDataItInitialized()) }
         ViewModelProviders.of(this,factory).get(ViewNewsDetailFragmentViewModel::class.java)
     }
 

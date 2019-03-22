@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.angelsheaven.teremdemoapp.R
 import com.angelsheaven.teremdemoapp.data.News
 import com.angelsheaven.teremdemoapp.ui.listNews.NewsAdapter
-import com.angelsheaven.teremdemoapp.utilities.isItInitializedData
+import com.angelsheaven.teremdemoapp.utilities.isMyDataItInitialized
 import com.angelsheaven.teremdemoapp.utilities.provideListSavedNewsFragmentViewModelFactory
 import com.angelsheaven.teremdemoapp.widgets.MarginItemDecoration
 import kotlinx.android.synthetic.main.fragment_bookmark_news.*
@@ -24,7 +24,7 @@ class ListSavedNewsFragment : Fragment() {
 
     private val mViewModel by lazy {
         val factory =
-            context?.let { provideListSavedNewsFragmentViewModelFactory(it, isItInitializedData(activity)) }
+            context?.let { provideListSavedNewsFragmentViewModelFactory(it, activity?.isMyDataItInitialized()) }
         ViewModelProviders.of(this, factory)
             .get(ListSavedNewsFragmentViewModel::class.java)
     }

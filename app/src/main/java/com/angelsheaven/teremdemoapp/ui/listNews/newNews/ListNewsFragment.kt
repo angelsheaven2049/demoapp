@@ -28,7 +28,7 @@ class ListNewsFragment : Fragment(), MyLogger {
 
     private val mViewModel by lazy {
         val factory = context?.let {
-            provideListNewsFragmentViewModelFactory(it, isItInitializedData(activity))
+            provideListNewsFragmentViewModelFactory(it, activity?.isMyDataItInitialized())
         }
 
         ViewModelProviders.of(this, factory).get(ListNewsFragmentViewModel::class.java)
