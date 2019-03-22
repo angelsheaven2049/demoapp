@@ -22,7 +22,6 @@ import com.google.android.material.textfield.TextInputEditText
 
 object BindingAdapters {
 
-
     @BindingAdapter("app:hideIfEmpty")
     @JvmStatic fun hideIfEmpty(view: View, text:String){
         view.visibility = if(text.isEmpty()) View.GONE else View.VISIBLE

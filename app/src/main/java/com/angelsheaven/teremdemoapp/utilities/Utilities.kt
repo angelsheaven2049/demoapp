@@ -7,5 +7,4 @@ interface MyLogger{
         val className = this.javaClass.simpleName
         Log.d(className,message)
     }
-
 }

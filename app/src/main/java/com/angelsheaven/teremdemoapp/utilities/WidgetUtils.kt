@@ -16,7 +16,7 @@ fun View.mySnackBar(message: Int, backgroundColor: Int): TSnackbar {
 
         //Change background color of snackbar
         val color =
-            com.angelsheaven.teremdemoapp.utilities.getColor(context,backgroundColor)
+            context.myGetColor(backgroundColor)
 
         it.view.setBackgroundColor(color)
 
@@ -34,7 +34,7 @@ fun View.mySnackBar(message: String, backgroundColor: Int): TSnackbar {
 
         //Change background color of snackbar
         val color =
-            com.angelsheaven.teremdemoapp.utilities.getColor(context,backgroundColor)
+            context.myGetColor(backgroundColor)
 
         it.view.setBackgroundColor(color)
 
