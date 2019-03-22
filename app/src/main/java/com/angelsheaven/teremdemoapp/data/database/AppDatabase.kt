@@ -1,7 +1,6 @@
 package com.angelsheaven.teremdemoapp.data.database
 
 import android.content.Context
-import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -13,27 +12,20 @@ import com.angelsheaven.teremdemoapp.utilities.Converters
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase(){
     companion object {
-        private val LOG_TAG =AppDatabase::class.java.simpleName
         private const val DATABASE_NAME = "teremDemoApp"
 
-        //For singleton instantiation
-        private val LOCK:Any = Any()
         private var sInstance: AppDatabase? = null
 
         fun getInstance(context: Context):AppDatabase?{
-            Log.d(LOG_TAG,"Getting the databases")
-            if(sInstance == null){
-                synchronized(LOCK){
-                    sInstance = Room.databaseBuilder(context.applicationContext
-                    ,AppDatabase::class.java
-                    ,AppDatabase.DATABASE_NAME)
-                            .fallbackToDestructiveMigration()
-                            .build()
-                }
-
+            return sInstance?: synchronized(this){
+                Room.databaseBuilder(context.applicationContext,
+                    AppDatabase::class.java,
+                    AppDatabase.DATABASE_NAME)
+                    .fallbackToDestructiveMigration()
+                    .build().also {
+                        sInstance = it
+                    }
             }
-
-            return sInstance
         }
     }
 

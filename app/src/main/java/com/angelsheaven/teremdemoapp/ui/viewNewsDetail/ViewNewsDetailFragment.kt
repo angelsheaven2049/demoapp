@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
 import com.angelsheaven.teremdemoapp.databinding.FragmentViewEventDetailBinding
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
+import com.angelsheaven.teremdemoapp.utilities.isItInitializedData
 import com.angelsheaven.teremdemoapp.utilities.provideViewNewsDetailFragmentViewModelFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -23,7 +23,7 @@ class ViewNewsDetailFragment : Fragment(), MyLogger {
 
     private val viewModel by lazy {
         val factory: ViewNewsDetailFragmentViewModelFactory?
-                = context?.let { provideViewNewsDetailFragmentViewModelFactory(it,activity as FragmentActivity) }
+                = context?.let { provideViewNewsDetailFragmentViewModelFactory(it, isItInitializedData(activity)) }
         ViewModelProviders.of(this,factory).get(ViewNewsDetailFragmentViewModel::class.java)
     }
 

@@ -1,8 +1,5 @@
 package com.angelsheaven.teremdemoapp.data
 
-import android.app.Activity
-import android.content.Context
-import androidx.core.content.edit
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.LivePagedListBuilder
@@ -13,10 +10,8 @@ import com.angelsheaven.teremdemoapp.data.database.ReadNews
 import com.angelsheaven.teremdemoapp.data.database.SavedNews
 import com.angelsheaven.teremdemoapp.data.network.NetworkDataSource
 import com.angelsheaven.teremdemoapp.data.storage.StorageDataSource
-import com.angelsheaven.teremdemoapp.utilities.INITIALIZE_DATA
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import com.angelsheaven.teremdemoapp.utilities.configLoadData
-import com.angelsheaven.teremdemoapp.utilities.isItInitializedData
 import io.reactivex.Flowable
 import kotlinx.coroutines.*
 import java.util.*
@@ -25,13 +20,12 @@ import java.util.*
 class Repository(
     private val networkDataSource: NetworkDataSource?
     , private val storageDataSource: StorageDataSource?
-    , private val activity: Activity?
+    , private val isItInitializedData: Boolean?
 ) : MyLogger {
 
     val networkConnectionState by lazy { MutableLiveData<Boolean>() }
     private val networkErrors by lazy { MutableLiveData<String>() }
-
-
+    private val updateInitializeData by lazy { MutableLiveData<Boolean>() }
 
     //For singleton instantiation
     companion object {
@@ -41,13 +35,13 @@ class Repository(
         fun getInstance(
             networkDataSource: NetworkDataSource?
             , storageDataSource: StorageDataSource?
-            , activity: Activity?
+            , isItInitializedData: Boolean?
         ): Repository? {
             return sInstance ?: synchronized(this) {
                 Repository(
                     networkDataSource,
                     storageDataSource,
-                    activity
+                    isItInitializedData
                 ).also {
                     sInstance = it
                 }
@@ -104,15 +98,15 @@ class Repository(
 
     @Synchronized
     private fun getAndSaveData() {
-        if (isItInitializedData(activity)) return
+
+        if (isItInitializedData == true) return
 
         GlobalScope.launch {
             retrieveNewNews()
         }
     }
 
-    suspend fun updateNewsFieldSaved(news: News, isSaved: Boolean): Boolean {
-
+    suspend fun updateNewsFieldSaved(news: News?, isSaved: Boolean): Boolean {
         news?.run {
             return if (isSaved) {
                 turnANewsToSaved(news)
@@ -250,9 +244,7 @@ class Repository(
 
                                 }
 
-                                activity?.getPreferences(Context.MODE_PRIVATE)?.edit {
-                                    putBoolean(INITIALIZE_DATA, true)
-                                }
+                                updateInitializeData.postValue(true)
                             }
                         }
 

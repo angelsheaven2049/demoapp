@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     private val mViewModel by lazy {
         //Inject view model to main activity
         val factory: MainActivityViewModelFactory? =
-            provideMainActivityViewModelFactory(this.applicationContext,this)
+            provideMainActivityViewModelFactory(this.applicationContext, isItInitializedData(this))
 
          ViewModelProviders.of(this, factory)
             .get(MainActivityViewModel::class.java)
