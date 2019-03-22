@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(),MyLogger {
     private val mViewModel by lazy {
         //Inject view model to main activity
         val factory: MainActivityViewModelFactory? =
-            provideMainActivityViewModelFactory(this.applicationContext, isItInitializedData(this))
+            provideMainActivityViewModelFactory(this.applicationContext, isMyDataItInitialized())
 
         ViewModelProviders.of(this, factory)
             .get(MainActivityViewModel::class.java)
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(),MyLogger {
         override fun onReceive(context: Context?, intent: Intent?) {
             context?.run {
 
-                isNetworkConnected = isNetworkConnected(this)
+                isNetworkConnected = context.isMyNetworkConnected()
 
                 if (!isNetworkConnected) {
                     this@MainActivity.contentView?.let {
@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity(),MyLogger {
 
         createNotificationChannel()
 
-        if (!isItInitializedData(this)) {
+        if (!isMyDataItInitialized()) {
             mViewModel.updateInitializeDataState.observeOnce(this
                 , Observer { isUpdated ->
                     if (isUpdated) {
