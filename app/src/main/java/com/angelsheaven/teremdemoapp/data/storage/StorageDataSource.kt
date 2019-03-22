@@ -2,10 +2,9 @@ package com.angelsheaven.teremdemoapp.data.storage
 
 import androidx.paging.DataSource
 import androidx.sqlite.db.SimpleSQLiteQuery
-import com.angelsheaven.teremdemoapp.data.database.AppDatabase
-import com.angelsheaven.teremdemoapp.data.database.News
-import com.angelsheaven.teremdemoapp.data.database.ReadNews
-import com.angelsheaven.teremdemoapp.data.database.SavedNews
+import com.angelsheaven.teremdemoapp.data.News
+import com.angelsheaven.teremdemoapp.data.ReadNews
+import com.angelsheaven.teremdemoapp.data.SavedNews
 import com.angelsheaven.teremdemoapp.utilities.FILTER_BY_ALL
 import com.angelsheaven.teremdemoapp.utilities.SORT_BY_NONE
 import io.reactivex.Flowable

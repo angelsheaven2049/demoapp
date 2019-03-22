@@ -3,7 +3,7 @@ package com.angelsheaven.teremdemoapp.utilities
 import android.content.Context
 import androidx.fragment.app.Fragment
 import com.angelsheaven.teremdemoapp.data.Repository
-import com.angelsheaven.teremdemoapp.data.database.AppDatabase
+import com.angelsheaven.teremdemoapp.data.storage.AppDatabase
 import com.angelsheaven.teremdemoapp.data.network.NetworkDataSource
 import com.angelsheaven.teremdemoapp.data.storage.StorageDataSource
 import com.angelsheaven.teremdemoapp.ui.MainActivityViewModelFactory

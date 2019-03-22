@@ -5,7 +5,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.angelsheaven.teremdemoapp.data.Repository
-import com.angelsheaven.teremdemoapp.data.database.News
+import com.angelsheaven.teremdemoapp.data.News
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import io.reactivex.Flowable
 

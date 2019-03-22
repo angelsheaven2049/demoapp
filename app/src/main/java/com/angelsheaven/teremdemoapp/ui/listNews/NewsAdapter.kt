@@ -19,7 +19,7 @@ package com.angelsheaven.teremdemoapp.ui.listNews
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.angelsheaven.teremdemoapp.data.database.News
+import com.angelsheaven.teremdemoapp.data.News
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import kotlinx.android.synthetic.main.news_item_layout.view.*
 

@@ -4,10 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.angelsheaven.teremdemoapp.data.database.News
-import com.angelsheaven.teremdemoapp.data.database.NewsSearchResult
-import com.angelsheaven.teremdemoapp.data.database.ReadNews
-import com.angelsheaven.teremdemoapp.data.database.SavedNews
+import com.angelsheaven.teremdemoapp.data.storage.NewsSearchResult
 import com.angelsheaven.teremdemoapp.data.network.NetworkDataSource
 import com.angelsheaven.teremdemoapp.data.storage.StorageDataSource
 import com.angelsheaven.teremdemoapp.utilities.MyLogger

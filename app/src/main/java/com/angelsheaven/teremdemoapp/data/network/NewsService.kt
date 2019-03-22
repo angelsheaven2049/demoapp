@@ -1,6 +1,6 @@
 package com.angelsheaven.teremdemoapp.data.network
 
-import com.angelsheaven.teremdemoapp.data.database.News
+import com.angelsheaven.teremdemoapp.data.News
 import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.Response
@@ -19,5 +19,5 @@ interface NewsService {
     val getAllNewStoriesV2: Deferred<Response<List<Int>>>
 
     @GET("item/{id}")
-    fun getNewsDetailV2(@Path("id") itemId:String): Deferred<Response<News>>
+    fun getNewsDetailV2Async(@Path("id") itemId:String): Deferred<Response<News>>
 }

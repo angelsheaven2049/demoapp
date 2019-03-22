@@ -113,6 +113,10 @@ dependencies {
     implementation deps.rx.rxjava2
     implementation deps.rx.rx_android
 
+    //Dagger2
+    implementation deps.dagger.core
+    kapt deps.dagger.compiler
+
     //Testing dependencies
     testImplementation deps.test.local
     testImplementation deps.test.hamcrest_library

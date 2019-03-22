@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.angelsheaven.teremdemoapp.R
-import com.angelsheaven.teremdemoapp.data.database.News
+import com.angelsheaven.teremdemoapp.data.News
 import com.angelsheaven.teremdemoapp.ui.listNews.NewsAdapter
 import com.angelsheaven.teremdemoapp.utilities.*
 import com.angelsheaven.teremdemoapp.widgets.GridItemDecoration
