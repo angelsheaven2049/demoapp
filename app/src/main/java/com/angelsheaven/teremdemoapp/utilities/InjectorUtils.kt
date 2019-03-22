@@ -3,7 +3,6 @@ package com.angelsheaven.teremdemoapp.utilities
 import android.app.Activity
 import android.content.Context
 import androidx.fragment.app.Fragment
-import com.angelsheaven.teremdemoapp.AppExecutors
 import com.angelsheaven.teremdemoapp.data.Repository
 import com.angelsheaven.teremdemoapp.data.database.AppDatabase
 import com.angelsheaven.teremdemoapp.data.network.NetworkDataSource
@@ -18,13 +17,9 @@ import com.angelsheaven.teremdemoapp.ui.viewNewsDetail.ViewNewsDetailFragmentVie
 
 fun provideRepository(context: Context, activity: Activity? = null): Repository? {
     val database: AppDatabase? = AppDatabase.getInstance(context.applicationContext)
-    val executors: AppExecutors? = AppExecutors.getInstance()
     val networkDataSource = NetworkDataSource.getInstance()
     val storageDataSource = StorageDataSource
-        .getInstance(
-            database, context.applicationContext
-            , executors
-        )
+        .getInstance(database)
     return Repository.getInstance(networkDataSource, storageDataSource, activity)
 }
 

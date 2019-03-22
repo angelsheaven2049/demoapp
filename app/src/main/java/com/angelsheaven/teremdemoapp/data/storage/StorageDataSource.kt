@@ -1,9 +1,7 @@
 package com.angelsheaven.teremdemoapp.data.storage
 
-import android.content.Context
 import androidx.paging.DataSource
 import androidx.sqlite.db.SimpleSQLiteQuery
-import com.angelsheaven.teremdemoapp.AppExecutors
 import com.angelsheaven.teremdemoapp.data.database.AppDatabase
 import com.angelsheaven.teremdemoapp.data.database.News
 import com.angelsheaven.teremdemoapp.data.database.ReadNews
@@ -13,26 +11,17 @@ import com.angelsheaven.teremdemoapp.utilities.SORT_BY_NONE
 import io.reactivex.Flowable
 
 class StorageDataSource(
-    private val mDatabase: AppDatabase?
-    , val context: Context
-    , private val executors: AppExecutors?
-) {
+    private val mDatabase: AppDatabase?) {
 
     companion object {
         private var sInstance: StorageDataSource? = null
         /**
          * get the singleton for this class
          */
-        fun getInstance(
-            mDatabase: AppDatabase?
-            , context: Context
-            , executors: AppExecutors?
-        ): StorageDataSource? {
+        fun getInstance(mDatabase: AppDatabase?): StorageDataSource? {
             return sInstance ?: synchronized(this) {
                 StorageDataSource(
-                    mDatabase,
-                    context.applicationContext,
-                    executors
+                    mDatabase
                 ).also {
                     sInstance = it
                 }
