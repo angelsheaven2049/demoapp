@@ -77,10 +77,10 @@ class StorageDataSource(
         }
 
         if (userQuery.isNotEmpty()) {
-            if (!queryString.contains(sqlConditionKeyword)) {
-                queryString += sqlConditionKeyword
+            queryString += if (!queryString.contains(sqlConditionKeyword)) {
+                sqlConditionKeyword
             } else {
-                queryString += sqlAndOperator
+                sqlAndOperator
             }
             queryString += " (title LIKE '%$userQuery%' " +
                     "or 'by' LIKE '%$userQuery%') "
