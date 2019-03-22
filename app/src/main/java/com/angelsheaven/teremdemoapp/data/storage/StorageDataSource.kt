@@ -1,7 +1,6 @@
 package com.angelsheaven.teremdemoapp.data.storage
 
 import android.content.Context
-import android.util.Log
 import androidx.paging.DataSource
 import androidx.sqlite.db.SimpleSQLiteQuery
 import com.angelsheaven.teremdemoapp.AppExecutors
@@ -20,9 +19,7 @@ class StorageDataSource(
 ) {
 
     companion object {
-        private val LOG_TAG: String = StorageDataSource::class.java.simpleName
         private var sInstance: StorageDataSource? = null
-        private val LOCK = Object()
         /**
          * get the singleton for this class
          */
@@ -31,18 +28,15 @@ class StorageDataSource(
             , context: Context
             , executors: AppExecutors?
         ): StorageDataSource? {
-            Log.d(LOG_TAG, "Getting the storage data source")
-            if (sInstance == null) {
-                synchronized(LOCK) {
-                    sInstance = StorageDataSource(
-                        mDatabase
-                        , context.applicationContext,
-                        executors
-                    )
-                    Log.d(LOG_TAG, "Made new storage data source")
+            return sInstance ?: synchronized(this) {
+                StorageDataSource(
+                    mDatabase,
+                    context.applicationContext,
+                    executors
+                ).also {
+                    sInstance = it
                 }
             }
-            return sInstance
         }
 
     }
@@ -52,7 +46,7 @@ class StorageDataSource(
     }
 
     fun getReadNews(newsId: Int): ReadNews? {
-       return mDatabase?.readNewsDao()?.getItem(newsId)
+        return mDatabase?.readNewsDao()?.getItem(newsId)
     }
 
     //Delete all existing news data in local database
