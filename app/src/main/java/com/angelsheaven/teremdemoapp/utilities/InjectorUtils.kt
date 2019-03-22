@@ -19,10 +19,7 @@ import com.angelsheaven.teremdemoapp.ui.viewNewsDetail.ViewNewsDetailFragmentVie
 fun provideRepository(context: Context, activity: Activity? = null): Repository? {
     val database: AppDatabase? = AppDatabase.getInstance(context.applicationContext)
     val executors: AppExecutors? = AppExecutors.getInstance()
-    val networkDataSource = NetworkDataSource.getInstance(
-        context.applicationContext
-        , executors
-    )
+    val networkDataSource = NetworkDataSource.getInstance()
     val storageDataSource = StorageDataSource
         .getInstance(
             database, context.applicationContext

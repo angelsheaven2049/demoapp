@@ -31,6 +31,8 @@ class Repository(
     val networkConnectionState by lazy { MutableLiveData<Boolean>() }
     private val networkErrors by lazy { MutableLiveData<String>() }
 
+
+
     //For singleton instantiation
     companion object {
         private var sInstance: Repository? = null
