@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.angelsheaven.teremdemoapp.utilities.DATE_TIME_FORMATTER_PATTERN
+import com.angelsheaven.teremdemoapp.DATE_TIME_FORMATTER_PATTERN
 import java.text.SimpleDateFormat
 import java.util.*
 

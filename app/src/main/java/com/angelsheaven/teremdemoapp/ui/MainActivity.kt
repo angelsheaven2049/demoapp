@@ -22,7 +22,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
-import com.angelsheaven.teremdemoapp.R
+import com.angelsheaven.teremdemoapp.*
 import com.angelsheaven.teremdemoapp.utilities.*
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_main.*

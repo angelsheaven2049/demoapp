@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.lifecycle.*
 import androidx.paging.PagedList
+import com.angelsheaven.teremdemoapp.*
 import com.angelsheaven.teremdemoapp.data.Repository
 import com.angelsheaven.teremdemoapp.data.storage.News
 import com.angelsheaven.teremdemoapp.data.storage.NewsSearchResult

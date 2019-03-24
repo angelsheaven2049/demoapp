@@ -1,6 +1,6 @@
 package com.angelsheaven.teremdemoapp.data.storage
 
-import com.angelsheaven.teremdemoapp.utilities.*
+import com.angelsheaven.teremdemoapp.*
 
 fun convertFilterIndexOptionToStringValue(selectedIndex: Int):String = when(selectedIndex){
     1 -> FILTER_BY_STORY

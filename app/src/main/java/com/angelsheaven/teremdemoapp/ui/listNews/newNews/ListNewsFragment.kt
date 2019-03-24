@@ -13,8 +13,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
+import com.angelsheaven.teremdemoapp.LAST_SEARCH_QUERY
 import com.angelsheaven.teremdemoapp.R
 import com.angelsheaven.teremdemoapp.data.storage.News
+import com.angelsheaven.teremdemoapp.defaultSearchCondition
 import com.angelsheaven.teremdemoapp.ui.listNews.NewsAdapter
 import com.angelsheaven.teremdemoapp.utilities.*
 import com.angelsheaven.teremdemoapp.widgets.GridItemDecoration

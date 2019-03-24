@@ -7,7 +7,7 @@ import androidx.paging.PagedList
 import com.angelsheaven.teremdemoapp.data.network.NetworkDataSource
 import com.angelsheaven.teremdemoapp.data.storage.*
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
-import com.angelsheaven.teremdemoapp.utilities.configLoadData
+import com.angelsheaven.teremdemoapp.configLoadData
 import io.reactivex.Flowable
 import kotlinx.coroutines.*
 import java.util.*

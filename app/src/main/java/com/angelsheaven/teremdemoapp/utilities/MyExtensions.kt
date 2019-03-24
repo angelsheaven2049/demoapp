@@ -14,6 +14,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.androidadvance.topsnackbar.TSnackbar
+import com.angelsheaven.teremdemoapp.INITIALIZE_DATA
 import com.google.android.material.snackbar.Snackbar
 
 //Livedata extension function
