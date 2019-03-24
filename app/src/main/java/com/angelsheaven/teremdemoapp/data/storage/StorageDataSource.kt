@@ -71,7 +71,7 @@ class StorageDataSource(
         val sqlConditionKeyword = " WHERE"
         val sqlAndOperator = " and "
 
-        var queryString = "SELECT * FROM news "
+        var queryString = "SELECT * FROM $TABLE_NEWS "
 
         if (filterOption.isNotEmpty() && filterOption != FILTER_BY_ALL) {
             if (!queryString.contains(sqlConditionKeyword)) {
