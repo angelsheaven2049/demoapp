@@ -6,8 +6,6 @@ import androidx.paging.PagedList
 
 const val INITIALIZE_DATA = "is_initialized_data"
 
-const val BASE_URL = "https://hacker-news.firebaseio.com/v0/"
-
 const val NEW_ID_LIST = "news_id_list"
 
 const val NEW_ID = "news_id"

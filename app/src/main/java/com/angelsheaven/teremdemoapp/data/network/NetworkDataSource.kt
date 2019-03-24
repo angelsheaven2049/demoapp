@@ -25,7 +25,7 @@ open class NetworkDataSource {
 
 
     suspend fun requestNews(): Response<List<Int>>? {
-        return service?.getAllNewStories?.await()
+        return service?.getAllNewStoriesAsync(PRETTY_FORMAT_TYPE)?.await()
     }
 
     suspend fun requestNewsDetail(newsId:Int): Response<News>? {
