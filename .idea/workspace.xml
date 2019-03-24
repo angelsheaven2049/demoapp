@@ -47,6 +47,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a7f8cf1-c3a8-4f20-83dc-2575b2aaf2b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NetworkDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NetworkDataSource.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NewsService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NewsService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/RemoteContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/RemoteContract.kt" afterDir="false" />
     </list>
@@ -74,15 +75,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/ui/MainActivity.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/utilities/InjectorUtils.kt">
           <provider selected="true" editor-type-id="text-editor">
@@ -113,20 +105,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NewsService.kt">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NetworkDataSource.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+            <state relative-caret-position="271">
+              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NewsService.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/RemoteContract.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="12" column="43" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="43" />
+              <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -270,7 +271,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/utilities/InjectorUtils.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/ui/listNews/savedNews/ListSavedNewsFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NetworkUtils.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NetworkDataSource.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/storage/AppDatabase.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/storage/NewsDao.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/storage/StorageDataSource.kt" />
@@ -280,8 +280,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/storage/DatabaseContract.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/storage/DatabaseModel.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/NewsSearchResult.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/RemoteContract.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NetworkDataSource.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NewsService.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/RemoteContract.kt" />
       </list>
     </option>
   </component>
@@ -722,7 +723,7 @@
       <window_info anchor="bottom" id="Run" order="1" weight="0.32218844" />
       <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.32928064" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50572246" side_tool="true" weight="0.2897196" />
-      <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49774265" weight="0.4052685" />
+      <window_info anchor="bottom" id="Logcat" order="4" sideWeight="0.49774265" visible="true" weight="0.4052685" />
       <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" auto_hide="true" id="Terminal" order="7" sideWeight="0.49213162" weight="0.25227964" />
@@ -944,13 +945,6 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/storage/DatabaseUtils.kt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NetworkDataSource.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/storage/NewsDao.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -1105,17 +1099,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/RemoteContract.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NetworkDataSource.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="43" />
+        <state relative-caret-position="271">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/NewsService.kt">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/angelsheaven/teremdemoapp/data/network/RemoteContract.kt">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
         </state>
       </provider>
     </entry>

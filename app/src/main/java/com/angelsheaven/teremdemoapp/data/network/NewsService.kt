@@ -15,5 +15,5 @@ interface NewsService {
             : Deferred<Response<List<Int>>>
 
     @GET(GET_NEWS_DETAIL)
-    fun getNewsDetailAsync(@Path(NEWS_ID) itemId:String): Deferred<Response<News>>
+    fun getNewsDetailAsync(@Path(NEWS_ID) itemId:Int): Deferred<Response<News>>
 }

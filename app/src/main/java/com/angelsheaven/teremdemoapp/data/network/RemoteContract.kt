@@ -10,5 +10,5 @@ const val PRETTY_FORMAT_TYPE = "pretty"
 
 const val GET_TOP_STORIES = "topstories.json"
 
-const val GET_NEWS_DETAIL = "item/{$NEWS_ID}"
+const val GET_NEWS_DETAIL = "item/{$NEWS_ID}.json"
 

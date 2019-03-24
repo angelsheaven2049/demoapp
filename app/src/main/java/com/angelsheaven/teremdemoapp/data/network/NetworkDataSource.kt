@@ -30,7 +30,7 @@ open class NetworkDataSource:MyLogger {
     }
 
     suspend fun requestNewsDetail(newsId:Int): Response<News>? {
-        return service?.getNewsDetailAsync("$newsId.json")?.await()
+        return service?.getNewsDetailAsync(newsId)?.await()
     }
 
 }
