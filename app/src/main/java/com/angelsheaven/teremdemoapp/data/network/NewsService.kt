@@ -10,10 +10,10 @@ import retrofit2.http.Query
 
 interface NewsService {
 
-    @GET("topstories.json")
+    @GET(GET_TOP_STORIES)
     fun getAllNewStoriesAsync(@Query(PRINT_FORMAT) printFormat:String)
             : Deferred<Response<List<Int>>>
 
-    @GET("item/{id}")
+    @GET(GET_NEWS_DETAIL)
     fun getNewsDetailAsync(@Path("id") itemId:String): Deferred<Response<News>>
 }
