@@ -6,8 +6,6 @@ import androidx.paging.PagedList
 
 const val INITIALIZE_DATA = "is_initialized_data"
 
-const val DATE_TIME_FORMATTER_PATTERN = "dd MMMM yyyy"
-
 const val FILTER_BY_ALL = "all"
 
 const val FILTER_BY_STORY = "story"
