@@ -1,5 +1,6 @@
 package com.angelsheaven.teremdemoapp.data
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.LivePagedListBuilder
@@ -11,6 +12,7 @@ import com.angelsheaven.teremdemoapp.data.storage.ReadNews
 import com.angelsheaven.teremdemoapp.data.storage.SavedNews
 import com.angelsheaven.teremdemoapp.data.storage.StorageDataSource
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
+import com.angelsheaven.teremdemoapp.utilities.isMyDataItInitialized
 import io.reactivex.Flowable
 import kotlinx.coroutines.*
 import java.util.*
@@ -18,10 +20,11 @@ import javax.inject.Inject
 
 
 class NewsRepository @Inject constructor(
-    private val networkDataSource: NetworkDataSource?
-    , private val storageDataSource: StorageDataSource?
+    private val networkDataSource: NetworkDataSource?,
+    private val storageDataSource: StorageDataSource?,
+    private val mContext: Context
 ) : MyLogger {
-    private val isDataInitialized: Boolean? = false
+
     val networkConnectionState by lazy { MutableLiveData<Boolean>() }
     private val networkErrors by lazy { MutableLiveData<String>() }
     val updateInitializeData by lazy { MutableLiveData<Boolean>() }
@@ -75,7 +78,8 @@ class NewsRepository @Inject constructor(
 
     @Synchronized
     private fun getAndSaveData() {
-        if (isDataInitialized == true) return
+
+        if (mContext.isMyDataItInitialized()) return
 
         GlobalScope.launch {
             retrieveNewNews()

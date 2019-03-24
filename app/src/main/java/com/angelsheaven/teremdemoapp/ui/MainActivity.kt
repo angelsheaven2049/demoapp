@@ -27,6 +27,7 @@ import com.angelsheaven.teremdemoapp.utilities.*
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.contentView
+import javax.inject.Inject
 
 
 class MainActivity : AppCompatActivity(),MyLogger {
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity(),MyLogger {
             .get(MainActivityViewModel::class.java)
     }
     private var isNetworkConnected = false
+    @Inject lateinit var mContext: Context
 
     private val netWorkChangeReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
@@ -138,7 +140,7 @@ class MainActivity : AppCompatActivity(),MyLogger {
             mViewModel.updateInitializeDataState.observeOnce(this
                 , Observer { isUpdated ->
                     if (isUpdated) {
-                        this.getMyPreferences()?.edit {
+                        mContext.getMyPreferences()?.edit {
                             log("Update initialize data flag")
                             putBoolean(INITIALIZE_DATA, true)
                         }

@@ -1,6 +1,5 @@
 package com.angelsheaven.teremdemoapp.utilities
 
-import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
@@ -15,6 +14,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.androidadvance.topsnackbar.TSnackbar
 import com.angelsheaven.teremdemoapp.INITIALIZE_DATA
+import com.angelsheaven.teremdemoapp.PREFS_FILENAME
 import com.google.android.material.snackbar.Snackbar
 
 //Livedata extension function
@@ -27,7 +27,7 @@ fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observ
     })
 }
 
-//Activity extension functions
+/*//Activity extension functions
 fun Activity.isMyDataItInitialized():Boolean {
     val shareRef = this.getPreferences(Context.MODE_PRIVATE) ?: return false
 
@@ -36,9 +36,20 @@ fun Activity.isMyDataItInitialized():Boolean {
 
 fun Activity.getMyPreferences(): SharedPreferences?{
     return this.getPreferences(Context.MODE_PRIVATE) ?: null
-}
+}*/
 
 //Context extension functions
+
+fun Context.isMyDataItInitialized():Boolean{
+    val shareRef = this.getSharedPreferences(PREFS_FILENAME,Context.MODE_PRIVATE) ?: return false
+
+    return shareRef.getBoolean(INITIALIZE_DATA,false)
+}
+
+fun Context.getMyPreferences():SharedPreferences?{
+    return this.getSharedPreferences(PREFS_FILENAME,Context.MODE_PRIVATE) ?: null
+}
+
 fun Context.myGetDrawable(context: Context, resourceId:Int): Drawable? {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         context.getDrawable(resourceId)

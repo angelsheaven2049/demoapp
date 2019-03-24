@@ -63,6 +63,8 @@ val defaultSearchCondition by lazy {
     }
 }
 
+const val PREFS_FILENAME = "com.angelsheavens.teremdemoapp.prefs"
+
 
 
 
