@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.angelsheaven.teremdemoapp.R
-import com.angelsheaven.teremdemoapp.data.News
+import com.angelsheaven.teremdemoapp.data.storage.News
 import com.angelsheaven.teremdemoapp.ui.listNews.NewsAdapter
 import com.angelsheaven.teremdemoapp.utilities.isMyDataItInitialized
 import com.angelsheaven.teremdemoapp.utilities.provideListSavedNewsFragmentViewModelFactory

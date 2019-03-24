@@ -18,7 +18,6 @@ package com.angelsheaven.teremdemoapp.data.storage
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
-import com.angelsheaven.teremdemoapp.data.News
 
 /**
  * RepoSearchResult from a search, which contains LiveData<List<Repo>> holding query data,

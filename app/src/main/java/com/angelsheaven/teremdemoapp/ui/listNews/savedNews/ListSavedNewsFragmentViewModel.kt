@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.*
 import androidx.paging.PagedList
 import com.angelsheaven.teremdemoapp.data.Repository
-import com.angelsheaven.teremdemoapp.data.News
+import com.angelsheaven.teremdemoapp.data.storage.News
 import com.angelsheaven.teremdemoapp.data.storage.NewsSearchResult
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import kotlinx.coroutines.async

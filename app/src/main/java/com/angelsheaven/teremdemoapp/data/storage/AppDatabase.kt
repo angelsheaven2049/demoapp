@@ -5,9 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.angelsheaven.teremdemoapp.data.News
-import com.angelsheaven.teremdemoapp.data.ReadNews
-import com.angelsheaven.teremdemoapp.data.SavedNews
 import com.angelsheaven.teremdemoapp.utilities.Converters
 
 @Database(entities = [News::class, ReadNews::class, SavedNews::class]
@@ -15,7 +12,6 @@ import com.angelsheaven.teremdemoapp.utilities.Converters
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase(){
     companion object {
-        private const val DATABASE_NAME = "teremDemoApp"
 
         private var sInstance: AppDatabase? = null
 

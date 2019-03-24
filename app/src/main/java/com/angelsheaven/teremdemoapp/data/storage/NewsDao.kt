@@ -3,7 +3,6 @@ package com.angelsheaven.teremdemoapp.data.storage
 import androidx.paging.DataSource
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteQuery
-import com.angelsheaven.teremdemoapp.data.News
 import io.reactivex.Flowable
 
 @Dao
@@ -15,13 +14,13 @@ interface NewsDao {
     @RawQuery(observedEntities = [News::class])
     fun getAllNews(rawQuery: SupportSQLiteQuery): DataSource.Factory<Int, News>
 
-    @Query("SELECT * FROM news WHERE id = :id")
-    fun getNewsDetail(id: Int): Flowable<News>
+    @RawQuery(observedEntities = [News::class])
+    fun getNewsDetail(rawQuery: SupportSQLiteQuery): Flowable<News>
 
-    @Query("DELETE FROM news")
+    @Query(DELETE_ALL_NEWS)
     fun deleteOldItems(): Int
 
-    @Query("DELETE FROM news WHERE id = :id")
+    @Query("$DELETE_SPECIFIC_NEWS :id")
     fun deleteItem(id: Int): Int
 
     @Query("UPDATE news SET saved = :saved WHERE id = :id")

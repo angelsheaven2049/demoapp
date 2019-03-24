@@ -1,6 +1,6 @@
 package com.angelsheaven.teremdemoapp.data.network
 
-import com.angelsheaven.teremdemoapp.data.News
+import com.angelsheaven.teremdemoapp.data.storage.News
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import retrofit2.Response
 

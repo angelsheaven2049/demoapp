@@ -2,15 +2,13 @@ package com.angelsheaven.teremdemoapp.data.storage
 
 import androidx.paging.DataSource
 import androidx.sqlite.db.SimpleSQLiteQuery
-import com.angelsheaven.teremdemoapp.data.News
-import com.angelsheaven.teremdemoapp.data.ReadNews
-import com.angelsheaven.teremdemoapp.data.SavedNews
 import com.angelsheaven.teremdemoapp.utilities.FILTER_BY_ALL
+import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import com.angelsheaven.teremdemoapp.utilities.SORT_BY_NONE
 import io.reactivex.Flowable
 
 class StorageDataSource(
-    private val mDatabase: AppDatabase?) {
+    private val mDatabase: AppDatabase?):MyLogger {
 
     companion object {
         private var sInstance: StorageDataSource? = null
@@ -43,7 +41,9 @@ class StorageDataSource(
     }
 
     fun retrieveNewsDetail(mNewsId: Int): Flowable<News>? {
-        return mDatabase?.newsDao()?.getNewsDetail(mNewsId)
+        val queryNewsDetail = SELECT_NEWS_DETAIL.format(mNewsId)
+        return mDatabase?.newsDao()
+            ?.getNewsDetail(SimpleSQLiteQuery(queryNewsDetail))
     }
 
     fun deleteNewsItem(newsId: Int): Int? {

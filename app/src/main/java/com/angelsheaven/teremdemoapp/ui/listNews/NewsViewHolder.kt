@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.angelsheaven.teremdemoapp.R
-import com.angelsheaven.teremdemoapp.data.News
+import com.angelsheaven.teremdemoapp.data.storage.News
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import kotlinx.android.synthetic.main.news_item_layout.view.*
 
