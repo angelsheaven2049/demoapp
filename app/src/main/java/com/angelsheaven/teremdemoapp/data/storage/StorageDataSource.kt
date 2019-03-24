@@ -8,7 +8,8 @@ import com.angelsheaven.teremdemoapp.utilities.SORT_BY_NONE
 import io.reactivex.Flowable
 
 class StorageDataSource(
-    private val mDatabase: AppDatabase?):MyLogger {
+    private val mDatabase: AppDatabase?
+) : MyLogger {
 
     companion object {
         private var sInstance: StorageDataSource? = null
@@ -55,7 +56,10 @@ class StorageDataSource(
     }
 
     fun updateNewsFieldSaved(newsId: Int, isSaved: Boolean): Int? {
-        return mDatabase?.newsDao()?.updateSavedFieldV2(newsId, isSaved)
+        val convertSavedValueToSqlBoolean = if (isSaved) 1 else 0
+        val updateSpecificNewsSavedFieldSqlStatement =
+            UPDATE_SPECIFIC_NEWS_SAVED_FIELD.format(convertSavedValueToSqlBoolean, newsId)
+        return mDatabase?.newsDao()?.updateSavedFieldV2(SimpleSQLiteQuery(updateSpecificNewsSavedFieldSqlStatement))
     }
 
     fun queryNews(

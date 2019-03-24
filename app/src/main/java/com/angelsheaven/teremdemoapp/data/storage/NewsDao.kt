@@ -23,11 +23,8 @@ interface NewsDao {
     @Query("$DELETE_SPECIFIC_NEWS :id")
     fun deleteItem(id: Int): Int
 
-    @Query("UPDATE news SET saved = :saved WHERE id = :id")
-    fun updateSavedField(id: Int, saved: Boolean)
-
-    @Query("UPDATE news SET saved = :saved WHERE id = :id")
-    fun updateSavedFieldV2(id: Int, saved: Boolean): Int
+    @RawQuery(observedEntities = [News::class])
+    fun updateSavedFieldV2(rawQuery: SupportSQLiteQuery): Int
 
 
 }
