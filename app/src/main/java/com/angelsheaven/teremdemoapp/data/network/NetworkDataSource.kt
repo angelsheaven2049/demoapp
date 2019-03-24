@@ -1,9 +1,10 @@
 package com.angelsheaven.teremdemoapp.data.network
 
 import com.angelsheaven.teremdemoapp.data.News
+import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import retrofit2.Response
 
-open class NetworkDataSource {
+open class NetworkDataSource:MyLogger {
 
     private val service: NewsService?
             by lazy { NetworkUtils.getNewsService() }
