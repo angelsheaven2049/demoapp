@@ -1,4 +1,4 @@
-package com.angelsheaven.teremdemoapp
+package com.angelsheaven.teremdemoapp.di
 
 import com.angelsheaven.teremdemoapp.ui.MainActivityViewModel
 import dagger.Component
