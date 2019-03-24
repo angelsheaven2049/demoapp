@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(),MyLogger {
     private val mViewModel by lazy {
         //Inject view model to main activity
         val factory: MainActivityViewModelFactory? =
-            provideMainActivityViewModelFactory(this.applicationContext, isMyDataItInitialized())
+            provideMainActivityViewModelFactory()
 
         ViewModelProviders.of(this, factory)
             .get(MainActivityViewModel::class.java)

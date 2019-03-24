@@ -18,7 +18,9 @@ import com.angelsheaven.teremdemoapp.R
 import com.angelsheaven.teremdemoapp.data.storage.News
 import com.angelsheaven.teremdemoapp.defaultSearchCondition
 import com.angelsheaven.teremdemoapp.ui.listNews.NewsAdapter
-import com.angelsheaven.teremdemoapp.utilities.*
+import com.angelsheaven.teremdemoapp.utilities.MyLogger
+import com.angelsheaven.teremdemoapp.utilities.mySnackBar
+import com.angelsheaven.teremdemoapp.utilities.provideListNewsFragmentViewModelFactory
 import com.angelsheaven.teremdemoapp.widgets.GridItemDecoration
 import com.angelsheaven.teremdemoapp.widgets.SwipeToDeleteCallback
 import kotlinx.android.synthetic.main.fragment_list_event.*
@@ -30,7 +32,7 @@ class ListNewsFragment : Fragment(), MyLogger {
 
     private val mViewModel by lazy {
         val factory = context?.let {
-            provideListNewsFragmentViewModelFactory(it, activity?.isMyDataItInitialized())
+            provideListNewsFragmentViewModelFactory()
         }
 
         ViewModelProviders.of(this, factory).get(ListNewsFragmentViewModel::class.java)

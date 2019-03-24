@@ -1,8 +1,6 @@
 package com.angelsheaven.teremdemoapp.data.storage
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.angelsheaven.teremdemoapp.utilities.Converters
@@ -11,7 +9,8 @@ import com.angelsheaven.teremdemoapp.utilities.Converters
         ,version = 4)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase(){
-    companion object {
+
+    /*companion object {
 
         private var sInstance: AppDatabase? = null
 
@@ -27,7 +26,7 @@ abstract class AppDatabase: RoomDatabase(){
                     }
             }
         }
-    }
+    }*/
 
     abstract fun newsDao(): NewsDao
 

@@ -1,7 +1,7 @@
 package com.angelsheaven.teremdemoapp.ui.login
 
 import android.content.Context
-import com.angelsheaven.teremdemoapp.data.Repository
+import com.angelsheaven.teremdemoapp.data.NewsRepository
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.IsEqual.equalTo
 import org.junit.After
@@ -17,7 +17,7 @@ class LoginFragmentViewModelTest {
     private var viewModel:LoginFragmentViewModel? = null
 
     @Mock
-    private var repository:Repository? = null
+    private var repository:NewsRepository? = null
 
     @Mock var context: Context? = null
 

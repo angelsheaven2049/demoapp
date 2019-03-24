@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.angelsheaven.teremdemoapp.databinding.FragmentLoginBinding
-import com.angelsheaven.teremdemoapp.utilities.isMyDataItInitialized
 import com.angelsheaven.teremdemoapp.utilities.provideLoginFragmentViewModelFactory
 
 /**
@@ -18,7 +17,7 @@ class LoginFragment : Fragment() {
 
     private val mViewModel by lazy {
         val factory = context?.let {
-            provideLoginFragmentViewModelFactory(it, activity?.isMyDataItInitialized(),this)
+            provideLoginFragmentViewModelFactory(this)
         }
         ViewModelProviders.of(this,factory).get(LoginFragmentViewModel::class.java)
     }

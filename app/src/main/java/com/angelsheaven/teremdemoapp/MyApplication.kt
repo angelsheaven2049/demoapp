@@ -1,8 +1,7 @@
 package com.angelsheaven.teremdemoapp
 
 import android.app.Application
-import com.angelsheaven.teremdemoapp.di.AppComponent
-import com.angelsheaven.teremdemoapp.di.AppModule
+import com.angelsheaven.teremdemoapp.di.*
 
 open class MyApplication:Application(){
 
@@ -17,6 +16,8 @@ open class MyApplication:Application(){
         super.onCreate()
         appComponent = DaggerAppComponent.builder()
             .appModule(AppModule(this))
+            .networkModule(NetworkModule())
+            .storageModule(StorageModule())
             .build()
     }
 

@@ -3,19 +3,19 @@ package com.angelsheaven.teremdemoapp.data.storage
 import androidx.paging.DataSource
 import androidx.sqlite.db.SimpleSQLiteQuery
 import com.angelsheaven.teremdemoapp.FILTER_BY_ALL
-import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import com.angelsheaven.teremdemoapp.SORT_BY_NONE
+import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import io.reactivex.Flowable
+import javax.inject.Inject
 
-class StorageDataSource(
-    private val mDatabase: AppDatabase?
-) : MyLogger {
+class StorageDataSource @Inject constructor(
+    private val mDatabase: AppDatabase?) : MyLogger {
 
-    companion object {
+    /*companion object {
         private var sInstance: StorageDataSource? = null
-        /**
+        *//**
          * get the singleton for this class
-         */
+         *//*
         fun getInstance(mDatabase: AppDatabase?): StorageDataSource? {
             return sInstance ?: synchronized(this) {
                 StorageDataSource(
@@ -26,7 +26,7 @@ class StorageDataSource(
             }
         }
 
-    }
+    }*/
 
     fun saveNewsDetail(news: News?): Long? {
         return mDatabase?.newsDao()?.insert(news)

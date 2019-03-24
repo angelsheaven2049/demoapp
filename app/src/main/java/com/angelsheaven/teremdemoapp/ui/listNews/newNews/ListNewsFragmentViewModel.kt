@@ -5,19 +5,24 @@ import android.os.Bundle
 import androidx.lifecycle.*
 import androidx.paging.PagedList
 import com.angelsheaven.teremdemoapp.*
-import com.angelsheaven.teremdemoapp.data.Repository
-import com.angelsheaven.teremdemoapp.data.storage.News
+import com.angelsheaven.teremdemoapp.data.NewsRepository
 import com.angelsheaven.teremdemoapp.data.NewsSearchResult
+import com.angelsheaven.teremdemoapp.data.storage.News
 import com.angelsheaven.teremdemoapp.data.storage.convertFilterIndexOptionToStringValue
 import com.angelsheaven.teremdemoapp.data.storage.convertSortIndexOptionToStringValue
-import com.angelsheaven.teremdemoapp.utilities.*
+import com.angelsheaven.teremdemoapp.utilities.MyLogger
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ListNewsFragmentViewModel(
-    val context: Context,
-    private val repository: Repository
-) : ViewModel(), MyLogger {
+class ListNewsFragmentViewModel: ViewModel(), MyLogger {
+
+    @Inject lateinit var repository:NewsRepository
+    @Inject lateinit var context: Context
+
+    init {
+        MyApplication.appComponent.inject(this)
+    }
 
     private val queryLiveData = MutableLiveData<Bundle>()
 
@@ -111,12 +116,9 @@ class ListNewsFragmentViewModel(
 
 }
 
-class ListNewsFragmentViewModelFactory(
-    private val context: Context,
-    private val repository: Repository
-) : ViewModelProvider
+class ListNewsFragmentViewModelFactory : ViewModelProvider
 .NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return ListNewsFragmentViewModel(context, repository) as T
+        return ListNewsFragmentViewModel() as T
     }
 }

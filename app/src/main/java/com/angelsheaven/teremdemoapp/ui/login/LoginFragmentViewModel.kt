@@ -8,15 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.findNavController
+import com.angelsheaven.teremdemoapp.MyApplication
 import com.angelsheaven.teremdemoapp.R
-import com.angelsheaven.teremdemoapp.data.Repository
+import com.angelsheaven.teremdemoapp.data.NewsRepository
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
+import javax.inject.Inject
 
-class LoginFragmentViewModel(
-    private val mContext: Context?,
-    private val mRepository: Repository?,
-    private val mFragment: Fragment?
-) : ViewModel(), MyLogger {
+class LoginFragmentViewModel(private val mFragment: Fragment?) : ViewModel(), MyLogger {
+
+    @Inject lateinit var repository:NewsRepository
+    @Inject lateinit var mContext: Context
+
+    init {
+        MyApplication.appComponent.inject(this)
+    }
 
     val username by lazy { ObservableField<String>() }
 
@@ -65,11 +70,9 @@ class LoginFragmentViewModel(
 }
 
 class LoginFragmentViewModelFactory(
-    private val mContext: Context,
-    private val mRepository: Repository,
     private val mFragment: Fragment
 ) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return LoginFragmentViewModel(mContext, mRepository, mFragment) as T
+        return LoginFragmentViewModel(mFragment) as T
     }
 }
