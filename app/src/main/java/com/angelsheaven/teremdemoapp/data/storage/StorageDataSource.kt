@@ -11,23 +11,6 @@ import javax.inject.Inject
 class StorageDataSource @Inject constructor(
     private val mDatabase: AppDatabase?) : MyLogger {
 
-    /*companion object {
-        private var sInstance: StorageDataSource? = null
-        *//**
-         * get the singleton for this class
-         *//*
-        fun getInstance(mDatabase: AppDatabase?): StorageDataSource? {
-            return sInstance ?: synchronized(this) {
-                StorageDataSource(
-                    mDatabase
-                ).also {
-                    sInstance = it
-                }
-            }
-        }
-
-    }*/
-
     fun saveNewsDetail(news: News?): Long? {
         return mDatabase?.newsDao()?.insert(news)
     }

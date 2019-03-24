@@ -8,14 +8,6 @@ import com.angelsheaven.teremdemoapp.ui.login.LoginFragmentViewModelFactory
 import com.angelsheaven.teremdemoapp.ui.viewNewsDetail.ViewNewsDetailFragmentViewModelFactory
 
 
-/*fun provideRepository(context: Context,isItInitializedData:Boolean?): NewsRepository? {
-    val database: AppDatabase? = AppDatabase.getInstance(context.applicationContext)
-    val networkDataSource = NetworkDataSource.getInstance()
-    val storageDataSource = StorageDataSource
-        .getInstance(database)
-    return NewsRepository.getInstance(networkDataSource, storageDataSource,isItInitializedData)
-}*/
-
 fun provideMainActivityViewModelFactory(): MainActivityViewModelFactory? {
     return MainActivityViewModelFactory()
 }

@@ -27,8 +27,8 @@ import kotlinx.android.synthetic.main.news_item_layout.view.*
 class NewsAdapter(
     val onUserClickOnItem: (Int) -> Unit,
     private val onMarkRead: ((News?) -> Unit)?,
-    val onUserBookmark: ((News?) -> Unit)?,
-    val onUserUnBookmark: ((News?) -> Unit)?)
+    private val onUserBookmark: ((News?) -> Unit)?,
+    private val onUserUnBookmark: ((News?) -> Unit)?)
     : PagedListAdapter<News, NewsViewHolder>(diffCallback), MyLogger {
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         holder.bindTo(getItem(position))

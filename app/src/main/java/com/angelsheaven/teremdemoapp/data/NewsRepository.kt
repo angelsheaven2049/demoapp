@@ -26,28 +26,6 @@ class NewsRepository @Inject constructor(
     private val networkErrors by lazy { MutableLiveData<String>() }
     val updateInitializeData by lazy { MutableLiveData<Boolean>() }
 
-    /*//For singleton instantiation
-    companion object {
-        private var sInstance: NewsRepository? = null
-
-        @Synchronized
-        fun getInstance(
-            networkDataSource: NetworkDataSource?
-            , storageDataSource: StorageDataSource?
-            , isItInitializedData: Boolean?
-        ): NewsRepository? {
-            return sInstance ?: synchronized(this) {
-                NewsRepository(
-                    networkDataSource,
-                    storageDataSource,
-                    isItInitializedData
-                ).also {
-                    sInstance = it
-                }
-            }
-        }
-    }*/
-
     suspend fun markNewsRead(news: News?): Boolean {
 
         return withContext(Dispatchers.IO) {
