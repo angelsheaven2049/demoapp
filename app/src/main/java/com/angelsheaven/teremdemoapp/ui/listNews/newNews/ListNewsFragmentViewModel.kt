@@ -7,7 +7,7 @@ import androidx.paging.PagedList
 import com.angelsheaven.teremdemoapp.*
 import com.angelsheaven.teremdemoapp.data.Repository
 import com.angelsheaven.teremdemoapp.data.storage.News
-import com.angelsheaven.teremdemoapp.data.storage.NewsSearchResult
+import com.angelsheaven.teremdemoapp.data.NewsSearchResult
 import com.angelsheaven.teremdemoapp.data.storage.convertFilterIndexOptionToStringValue
 import com.angelsheaven.teremdemoapp.data.storage.convertSortIndexOptionToStringValue
 import com.angelsheaven.teremdemoapp.utilities.*

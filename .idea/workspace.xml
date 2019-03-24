@@ -614,7 +614,7 @@
         <item itemvalue="Android JUnit.LoginFragmentViewModelTest" />
         <item itemvalue="Android JUnit.ListSavedNewsFragmentViewModelTest" />
         <item itemvalue="Android Instrumented Tests.MainActivityTest" />
-        <item itemvalue="Android JUnit.LoginFragmentViewModelTest" />
+        <item itemvalue="Android JUnit.LoginFragmentViewModelTest.getTextWatcher" />
       </list>
     </recent_temporary>
   </component>

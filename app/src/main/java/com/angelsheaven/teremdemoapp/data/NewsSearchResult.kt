@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package com.angelsheaven.teremdemoapp.data.storage
+package com.angelsheaven.teremdemoapp.data
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
+import com.angelsheaven.teremdemoapp.data.storage.News
 
 /**
  * RepoSearchResult from a search, which contains LiveData<List<Repo>> holding query data,
