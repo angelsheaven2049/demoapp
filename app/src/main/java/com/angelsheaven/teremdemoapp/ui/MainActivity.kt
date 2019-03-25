@@ -13,7 +13,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.edit
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
@@ -22,15 +21,21 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
-import com.angelsheaven.teremdemoapp.*
-import com.angelsheaven.teremdemoapp.utilities.*
+import com.angelsheaven.teremdemoapp.NOTIFICATION_DESCRIPTION
+import com.angelsheaven.teremdemoapp.NOTIFICATION_NAME
+import com.angelsheaven.teremdemoapp.PRIMARY_CHANNEL_ID
+import com.angelsheaven.teremdemoapp.R
+import com.angelsheaven.teremdemoapp.utilities.MyLogger
+import com.angelsheaven.teremdemoapp.utilities.isMyNetworkConnected
+import com.angelsheaven.teremdemoapp.utilities.mySnackBar
+import com.angelsheaven.teremdemoapp.utilities.provideMainActivityViewModelFactory
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.contentView
 import javax.inject.Inject
 
 
-class MainActivity : AppCompatActivity(),MyLogger {
+class MainActivity : AppCompatActivity(), MyLogger {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val mViewModel by lazy {
@@ -42,7 +47,8 @@ class MainActivity : AppCompatActivity(),MyLogger {
             .get(MainActivityViewModel::class.java)
     }
     private var isNetworkConnected = false
-    @Inject lateinit var mContext: Context
+    @Inject
+    lateinit var mContext: Context
 
     private val netWorkChangeReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
@@ -135,18 +141,6 @@ class MainActivity : AppCompatActivity(),MyLogger {
         }
 
         createNotificationChannel()
-
-        if (!isMyDataItInitialized()) {
-            mViewModel.updateInitializeDataState.observeOnce(this
-                , Observer { isUpdated ->
-                    if (isUpdated) {
-                        mContext.getMyPreferences()?.edit {
-                            log("Update initialize data flag")
-                            putBoolean(INITIALIZE_DATA, true)
-                        }
-                    }
-                })
-        }
 
     }
 

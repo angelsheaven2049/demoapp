@@ -22,9 +22,6 @@ class MainActivityViewModel: ViewModel(), MyLogger {
 
     val networkConnectionState by lazy { repository.networkConnectionState }
 
-    val updateInitializeDataState by lazy { repository.updateInitializeData }
-
-
 }
 
 class MainActivityViewModelFactory : ViewModelProvider

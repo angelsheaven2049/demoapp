@@ -1,10 +1,12 @@
 package com.angelsheaven.teremdemoapp.data
 
 import android.content.Context
+import androidx.core.content.edit
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import com.angelsheaven.teremdemoapp.INITIALIZE_DATA
 import com.angelsheaven.teremdemoapp.configLoadData
 import com.angelsheaven.teremdemoapp.data.network.NetworkDataSource
 import com.angelsheaven.teremdemoapp.data.storage.News
@@ -12,6 +14,7 @@ import com.angelsheaven.teremdemoapp.data.storage.ReadNews
 import com.angelsheaven.teremdemoapp.data.storage.SavedNews
 import com.angelsheaven.teremdemoapp.data.storage.StorageDataSource
 import com.angelsheaven.teremdemoapp.utilities.MyLogger
+import com.angelsheaven.teremdemoapp.utilities.getMyPreferences
 import com.angelsheaven.teremdemoapp.utilities.isMyDataItInitialized
 import io.reactivex.Flowable
 import kotlinx.coroutines.*
@@ -27,7 +30,6 @@ class NewsRepository @Inject constructor(
 
     val networkConnectionState by lazy { MutableLiveData<Boolean>() }
     private val networkErrors by lazy { MutableLiveData<String>() }
-    val updateInitializeData by lazy { MutableLiveData<Boolean>() }
 
     suspend fun markNewsRead(news: News?): Boolean {
 
@@ -78,7 +80,6 @@ class NewsRepository @Inject constructor(
 
     @Synchronized
     private fun getAndSaveData() {
-
         if (mContext.isMyDataItInitialized()) return
 
         GlobalScope.launch {
@@ -224,7 +225,10 @@ class NewsRepository @Inject constructor(
 
                                 }
 
-                                updateInitializeData.postValue(true)
+                                //update initialized data to true
+                                mContext.getMyPreferences()?.edit {
+                                    putBoolean(INITIALIZE_DATA, true)
+                                }
                             }
                         }
 
