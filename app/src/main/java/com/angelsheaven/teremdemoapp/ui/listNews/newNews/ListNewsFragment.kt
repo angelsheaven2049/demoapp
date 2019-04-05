@@ -37,6 +37,7 @@ class ListNewsFragment : Fragment(), MyLogger {
 
         ViewModelProviders.of(this, factory).get(ListNewsFragmentViewModel::class.java)
     }
+
     private val onUserClickItem: (Int) -> Unit = { newsId ->
         val newsDetailsScreen =
             ListNewsFragmentDirections.moveFromListEventToDetailEvent(newsId)
