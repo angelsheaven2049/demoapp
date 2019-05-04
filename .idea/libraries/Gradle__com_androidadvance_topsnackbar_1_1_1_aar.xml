@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.androidadvance:topsnackbar:1.1.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f480dddb9c57a2e736a583ece09d750f/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02ac3e9d78989ba844b47126bfd1b538/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f480dddb9c57a2e736a583ece09d750f/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f480dddb9c57a2e736a583ece09d750f/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02ac3e9d78989ba844b47126bfd1b538/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02ac3e9d78989ba844b47126bfd1b538/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.androidadvance/topsnackbar/1.1.1/ec707f9718616f1fa0b0a83e2a25ffe30f97de4/topsnackbar-1.1.1-javadoc.jar!/" />

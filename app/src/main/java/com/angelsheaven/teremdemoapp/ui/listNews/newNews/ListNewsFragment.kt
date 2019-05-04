@@ -119,6 +119,7 @@ class ListNewsFragment : Fragment(), MyLogger {
 
         mViewModel
             .news.observe(this, Observer {
+            log("New data")
             mAdapter?.submitList(it)
         })
 

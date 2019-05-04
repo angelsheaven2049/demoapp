@@ -71,9 +71,6 @@ dependencies {
     implementation deps.support.v4
     implementation deps.architecture.lifecycle_extensions
     implementation deps.architecture.lifecycle_viewmodel_ktx
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
     kapt deps.architecture.lifecycle_compiler
     annotationProcessor deps.architecture.lifecycle_compiler
 
