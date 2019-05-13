@@ -78,7 +78,7 @@ class ListNewsFragmentViewModel: ViewModel(), MyLogger {
     fun lastQueryValue(): Bundle = queryLiveData.value ?: defaultSearchCondition
 
     fun markReadNews(news: News?) {
-        viewModelScope?.launch {
+        viewModelScope.launch {
             val markReadNewsTask = async { repository.markNewsRead(news) }
 
             val resultMarkReadNewsTask = markReadNewsTask.await()

@@ -137,4 +137,5 @@
     <string name="parent_comment">Parent comment: %1$s</string>
     <string name="score">Score: %1$d</string>
     <string name="comments">Comment: %1$s</string>
+    <string name="query_hint">Search</string>
 </resources>

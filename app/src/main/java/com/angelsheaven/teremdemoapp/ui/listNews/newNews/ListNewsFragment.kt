@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.angelsheaven.teremdemoapp.LAST_SEARCH_QUERY
 import com.angelsheaven.teremdemoapp.R
 import com.angelsheaven.teremdemoapp.data.storage.News
@@ -82,7 +83,7 @@ class ListNewsFragment : Fragment(), MyLogger {
         lv_news_items.layoutManager = GridLayoutManager(
             context
             , 2
-            , GridLayoutManager.VERTICAL
+            , RecyclerView.VERTICAL
             , false
         )
 
@@ -141,6 +142,8 @@ class ListNewsFragment : Fragment(), MyLogger {
         val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
 
         (menu?.findItem(R.id.search)?.actionView as SearchView).apply {
+            queryHint = getString(R.string.query_hint)
+            isIconified = true
             setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
