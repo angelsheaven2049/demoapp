@@ -120,7 +120,7 @@ class ListNewsFragment : Fragment(), MyLogger {
 
         mViewModel
             .news.observe(this, Observer {
-            log("New data")
+            log("New data ${it.size}")
             mAdapter?.submitList(it)
         })
 

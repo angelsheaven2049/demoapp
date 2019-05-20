@@ -29,7 +29,7 @@ const val SORT_BY_NONE = "none"
 val configLoadData by lazy { PagedList.Config.Builder()
     .setPageSize(20)
     .setPrefetchDistance(20)
-    .setEnablePlaceholders(true)
+    .setEnablePlaceholders(false)
     .build() }
 
 const val LAST_SEARCH_QUERY = "last_search_query"
